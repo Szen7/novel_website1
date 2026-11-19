@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Nocturne</title>
+<meta name="description" content="Read original web novels for free, or create an account to publish your own.">
+<meta property="og:title" content="Nocturne">
+<meta property="og:description" content="Read original web novels for free, or publish your own.">
+<meta name="theme-color" content="#060913">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{--a:#38bdf8;--b:#34d399;--g:rgba(56,189,248,.3);--s:rgba(56,189,248,.14);--t:#7dd3fc;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{background:#060913;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{color:#e2e8f0;font-family:Inter,system-ui,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#060913;z-index:35}
+#cv{position:fixed;inset:0;width:100vw;height:100vh;z-index:0}
+main{pointer-events:none}
+.gl{pointer-events:auto;background:rgba(10,15,28,.62);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border:1px solid rgba(255,255,255,.12);box-shadow:0 18px 40px -14px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.1)}
+.card{transition:transform .25s,border-color .25s}.card:hover{transform:translateY(-3px);border-color:var(--a)}
+.btn{background:linear-gradient(135deg,var(--a),var(--b));color:#04101e;font-weight:600;border-radius:.75rem}.btn:hover{filter:brightness(1.1)}
+.gh{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:.75rem}.gh:hover{background:rgba(255,255,255,.14)}
+.chip{background:var(--s);border:1px solid var(--g);color:var(--t);border-radius:9999px;padding:.1rem .6rem;font-size:10px;font-weight:600}
+.pill{padding:.25rem .75rem;border-radius:9999px;font-size:.75rem;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:#cbd5e1}.pill:hover{background:rgba(255,255,255,.1)}
+.tb{padding:.35rem .75rem;border-radius:.75rem;font-size:.75rem;font-weight:500;color:#cbd5e1;border:1px solid transparent}.tb:hover{color:#fff}
+.on{background:var(--s)!important;border-color:var(--a)!important;color:#fff}
+.in{width:100%;background:rgba(5,9,20,.6);border:1px solid rgba(255,255,255,.14);border-radius:.75rem;padding:.55rem .85rem;font-size:.85rem;outline:none;color:#f1f5f9}.in:focus{border-color:var(--a);box-shadow:0 0 0 3px var(--g)}
+select.in{background:#0b1020}textarea.in{resize:vertical}
+label,.lb{display:block;font-size:11px;font-weight:500;color:#cbd5e1}
+.cover{position:relative;overflow:hidden;border-radius:.5rem .8rem .8rem .5rem;box-shadow:-3px 6px 16px rgba(0,0,0,.55)}
+.cover:before{content:"";position:absolute;inset:0 auto 0 0;width:9px;background:linear-gradient(90deg,rgba(0,0,0,.45),rgba(255,255,255,.18),rgba(0,0,0,.25))}
+.hid{display:none!important}
+.rd{--bg:#000;--fg:#d4d4d4;--mu:#737373;--ln:#262626;background:var(--bg);color:var(--fg)}
+.rd[data-t=light]{--bg:#fff;--fg:#1c1c1c;--ln:#e5e5e5}
+.rd .ln{border-color:var(--ln)}.rd .mu{color:var(--mu)}
+.rd .gh{background:transparent;border-color:var(--ln);color:var(--fg)}.rd .gh:hover{background:var(--ln)}
+.rd .gh.on{background:var(--fg)!important;color:var(--bg)}
+.rd .in{background:var(--bg);color:var(--fg);border-color:var(--ln)}
+.rd button:disabled{opacity:.35;pointer-events:none}
+.rd.fc .bar{display:none}
+.serif{font-family:Lora,Georgia,serif}.sans{font-family:Inter,sans-serif}
+#rB{line-height:1.85}#rB>*+*{margin-top:1.25rem}
+</style></head>
+<body>
+<canvas id="cv"></canvas>
+<div id="ts" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[60] gl rounded-full px-4 py-2 text-xs transition-opacity" style="opacity:0;pointer-events:none"></div>
+
+<header class="sticky z-30 px-3 sm:px-6 pt-3 pointer-events-none" style="top:env(safe-area-inset-top,0px)">
+<nav class="gl max-w-[1120px] mx-auto rounded-2xl px-3 sm:px-4 py-2.5 flex flex-wrap items-center gap-x-4 gap-y-2">
+<button data-tab="explore" class="flex items-center gap-2.5">
+<span class="w-9 h-9 rounded-xl grid place-items-center border" style="background:var(--s);border-color:var(--g)"><svg class="w-5 h-5" style="color:var(--t)" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/><path d="M19.5 4.5c-2.8.4-5.2 2.4-6.5 5.2L11.5 13l3.3-1.5c2.8-1.3 4.8-3.7 5.2-6.5Z"/></svg></span>
+<span class="text-lg font-bold tracking-tight text-white">Nocturne</span></button>
+<div class="flex gap-1"><button data-tab="explore" class="tb">Explore</button><button data-tab="shelf" class="tb">My Shelf <span id="sc" class="ml-1 px-1.5 rounded-full bg-white/10 text-[10px]">0</span></button><button data-tab="mine" id="tm" class="tb hid">My Works</button></div>
+<div class="ml-auto flex items-center gap-2">
+<button id="mo" class="gh px-3 py-1.5 text-xs" title="Change the scene">Night</button>
+<button data-w class="gh px-3 py-1.5 text-xs">Write</button>
+<div id="gu" class="flex items-center gap-2"><button id="si" class="px-2 text-xs text-slate-300 hover:text-white">Sign in</button><button id="su" class="btn px-3 py-1.5 text-xs">Create account</button></div>
+<div id="us" class="hid flex items-center gap-2"><span id="ua" class="w-6 h-6 rounded-full grid place-items-center text-[11px] font-bold text-slate-950" style="background:var(--a)"></span><span id="un" class="text-xs max-w-[100px] truncate"></span><button id="so" class="gh px-3 py-1.5 text-xs">Sign out</button></div>
+</div></nav></header>
+
+<main class="relative z-10 max-w-[1120px] mx-auto px-3 sm:px-6 pt-5 pb-16">
+<section id="hero" class="gl rounded-3xl p-6 sm:p-8 mb-5"></section>
+<section class="gl rounded-2xl p-3 mb-5 flex flex-col gap-3">
+<div class="flex flex-wrap gap-2"><input id="q" type="search" class="in flex-1 min-w-[180px] !rounded-full" placeholder="Search title, author, genre or synopsis"><select id="sr" class="in !w-auto"><option value="new">Newest</option><option value="top">Most applauded</option></select></div>
+<div id="gp" class="flex flex-wrap gap-1.5"></div></section>
+<section id="gd" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"></section>
+<div id="lm" class="hid text-center mt-5"><button class="gl rounded-xl px-5 py-2 text-xs">Show more stories</button></div>
+<div id="em" class="hid gl rounded-3xl p-8 text-center max-w-md mx-auto mt-4"><h2 id="eh" class="font-semibold text-white"></h2><p id="ep" class="text-xs text-slate-400 mt-1.5"></p><button data-w class="btn px-5 py-2 text-xs mt-4">Write a story</button></div>
+</main>
+
+<div id="au" class="hid fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm"><div class="gl rounded-3xl w-full max-w-[380px] p-6" style="background:rgba(11,16,29,.94)">
+<div class="flex justify-between items-start gap-3"><div><h2 id="ah" class="text-xl font-bold text-white"></h2><p id="an" class="text-xs text-slate-400 mt-1"></p></div><button id="ax" class="gh px-2.5 py-1 text-xs">Close</button></div>
+<div class="grid grid-cols-2 gap-1 p-1 rounded-xl bg-black/35 my-4"><button data-m="in" class="tb">Sign in</button><button data-m="up" class="tb">Create account</button></div>
+<p id="ae" class="hid text-xs text-rose-200 bg-rose-500/15 border border-rose-400/30 rounded-xl px-3 py-2 mb-3"></p>
+<form id="af" class="flex flex-col gap-3" novalidate><input id="aN" class="in" placeholder="Pen name" autocomplete="nickname"><input id="aE" type="email" class="in" placeholder="Email" autocomplete="email"><input id="aP" type="password" class="in" placeholder="Password (8+ characters)"><button id="ab" class="btn py-2.5 text-sm"></button></form>
+<button id="ag" class="block mx-auto mt-4 text-xs text-slate-400 hover:text-white">Keep reading as a guest</button></div></div>
+
+<div id="ed" class="hid fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-5 bg-black/65 backdrop-blur-sm"><form id="ef" class="gl rounded-3xl w-full max-w-3xl max-h-[94vh] flex flex-col overflow-hidden" style="background:rgba(11,16,29,.94)" novalidate>
+<div class="px-5 py-3.5 border-b border-white/10 flex items-center justify-between"><h2 id="eH" class="font-bold text-white"></h2><button type="button" id="eX" class="gh px-3 py-1.5 text-xs">Close</button></div>
+<div class="ov flex-1 min-h-0 overflow-y-auto p-5 flex flex-col gap-4">
+<p id="eE" class="hid text-xs text-rose-200 bg-rose-500/15 border border-rose-400/30 rounded-xl px-3 py-2"></p>
+<div><label for="eT">Title</label><input id="eT" class="in mt-1" placeholder="Whispers Beneath the Silver Pine"></div>
+<div><span class="lb">Genres (choose as many as fit)</span><div id="eG" class="flex flex-wrap gap-1.5 mt-1.5"></div><input id="eN" class="in mt-2 !w-56" placeholder="Add your own genre, press Enter"></div>
+<div><label for="eS">Synopsis</label><textarea id="eS" rows="4" class="in mt-1" placeholder="A hook that invites readers in. Write as much as you need."></textarea></div>
+<div><span class="lb">Cover</span><div id="eK" class="flex gap-2 mt-1.5"></div></div>
+<div class="flex items-center gap-2"><input id="eP" type="checkbox" class="accent-sky-400"><label for="eP" style="display:inline;cursor:pointer">Save as a draft (only you can see it)</label></div>
+<div class="border-t border-white/10 pt-4"><span class="lb mb-1.5">Chapters</span><div id="eC" class="flex flex-wrap gap-1.5"></div>
+<input id="cT" class="in mt-3" placeholder="Chapter title"><textarea id="cC" rows="12" class="in mt-2 leading-relaxed" placeholder="Write your chapter. Separate paragraphs with a new line."></textarea>
+<div class="flex justify-between mt-1.5 text-[11px]"><span id="eW" style="color:var(--t)"></span><button type="button" id="cD" class="text-rose-300 hover:underline">Delete this chapter</button></div></div></div>
+<div class="px-5 py-3 border-t border-white/10 flex justify-end gap-2"><button type="button" id="eY" class="gh px-4 py-2 text-xs">Cancel</button><button class="btn px-5 py-2 text-sm">Save and publish</button></div></form></div>
+
+<div id="rd" class="rd hid fixed inset-0 z-40 flex flex-col" data-t="dark">
+<div id="pb" class="absolute top-0 left-0 h-0.5 z-10" style="background:var(--a);width:0"></div>
+<div class="bar ln border-b px-3 sm:px-6 py-2.5 flex items-center gap-2"><button id="rX" class="gh px-3 py-1.5 text-xs">Close</button><div class="min-w-0 flex-1"><p id="rT" class="text-sm font-semibold truncate"></p><p id="rA" class="text-[11px] mu truncate"></p></div><select id="rC" class="in !w-auto max-w-[42vw] !py-1.5 text-xs"></select></div>
+<div class="bar ln border-b px-3 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2 text-xs">
+<div class="flex gap-1"><button data-f="serif" class="gh px-2.5 py-1">Serif</button><button data-f="sans" class="gh px-2.5 py-1">Sans</button></div>
+<div class="flex items-center gap-1"><button id="fm" class="gh px-2.5 py-1">A-</button><span id="fs" class="w-10 text-center mu"></span><button id="fp" class="gh px-2.5 py-1">A+</button></div>
+<div class="flex gap-1"><button data-th="dark" class="gh px-2.5 py-1">Black</button><button data-th="light" class="gh px-2.5 py-1">White</button></div>
+<button id="fc" class="gh px-2.5 py-1">Focus</button></div>
+<div id="rS" class="flex-1 min-h-0 overflow-y-auto px-5 sm:px-10 py-8"><article class="max-w-[66ch] mx-auto"><div id="rY"></div><p id="rN" class="text-xs font-semibold uppercase tracking-widest mu mb-1.5"></p><h2 id="rH" class="text-2xl font-bold mb-6 leading-snug"></h2><div id="rB"></div><div class="h-16"></div></article></div>
+<div class="bar ln border-t px-3 sm:px-6 py-2.5 flex items-center justify-between gap-2"><div class="flex gap-2"><button id="pv" class="gh px-3 py-1.5 text-xs">Previous</button><button id="nx" class="gh px-3 py-1.5 text-xs">Next</button></div><button id="ap" class="gh px-3.5 py-1.5 text-xs"></button></div>
+<button id="uf" class="hid fixed top-3 right-3 gh px-3 py-1.5 text-xs opacity-40 hover:opacity-100">Exit focus</button></div>
+
+<script>
+(()=>{'use strict';
+const $=i=>document.getElementById(i),show=(e,on=true)=>e.classList.toggle('hid',!on),cl=e=>show(e,false),rnd=Math.random;
+const ld=(k,d)=>{try{const v=JSON.parse(localStorage.getItem('nx:'+k));return v==null?d:v}catch(e){return d}},sv=(k,v)=>{try{localStorage.setItem('nx:'+k,JSON.stringify(v))}catch(e){}};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])),wc=s=>(s.match(/\S+/g)||[]).length;
+/* ---------- data layer: swap these stores for a real backend later ---------- */
+const GEN=['Fantasy','Sci-Fi','Romance','Mystery','Slice of Life','Horror','Adventure','Drama','Thriller','Historical','Comedy','Action'];
+const COV=['linear-gradient(155deg,#091326,#164e63 54%,#059669)','linear-gradient(155deg,#1f1135,#9d174d 52%,#ea580c)','linear-gradient(155deg,#0f0c29,#302b63 55%,#6d28d9)','linear-gradient(155deg,#1e1b4b,#831843 54%,#e11d48)','linear-gradient(155deg,#090d16,#1e293b 52%,#b45309)','linear-gradient(155deg,#0c192c,#1d4ed8 54%,#38bdf8)'];
+let users=ld('users',[]),novels=ld('novels',[]),shelf=ld('shelf',[]),prog=ld('prog',{}),liked=ld('liked',[]),rs=Object.assign({font:'serif',size:18,theme:'dark'},ld('rs',{})),me=users.find(u=>u.id===ld('me',''))||null;
+let tab='explore',genre='All',sort='new',q='',feat=null,arm=null,pend=false,lim=12;
+const words=n=>n.chapters.reduce((s,c)=>s+wc(c.content),0),mins=n=>Math.max(1,Math.round(words(n)/200));
+const live=()=>novels.filter(n=>!n.draft),pool=()=>tab==='mine'?novels.filter(n=>me&&n.owner===me.id):live();
+const pick=()=>{const v=live(),o=v.filter(n=>n.id!==feat),l=o.length?o:v;feat=l.length?l[Math.floor(rnd()*l.length)].id:null};
+const cover=(n,c,a='')=>`<div class="cover ${c}" ${a} style="background:${esc(n.cover)}"><div class="relative z-10 h-full flex flex-col justify-between p-2.5 pl-4"><span class="text-[8px] uppercase tracking-widest text-white/80 truncate">${esc(n.genres[0])}</span><div><p class="text-[11px] font-bold text-white leading-tight line-clamp-3">${esc(n.title)}</p><p class="text-[8px] text-white/70 truncate mt-1">${esc(n.author)}</p></div></div></div>`;
+const chips=(n,m=3)=>n.genres.slice(0,m).map(g=>`<span class="chip">${esc(g)}</span>`).join('')+(n.genres.length>m?`<span class="chip">+${n.genres.length-m}</span>`:'');
+const rl=n=>prog[n.id]>0?'Continue, chapter '+(prog[n.id]+1):'Read now';
+function toast(m){const t=$('ts');t.textContent=m;t.style.opacity=1;clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.opacity=0,3000)}
+/* ---------- catalog ---------- */
+function hdr(){show($('gu'),!me);show($('us'),!!me);show($('tm'),!!me);if(me){$('un').textContent=me.name;$('ua').textContent=me.name[0].toUpperCase()}$('sc').textContent=shelf.length;document.querySelectorAll('.tb[data-tab]').forEach(b=>b.classList.toggle('on',b.dataset.tab===tab))}
+function hero(){const h=$('hero'),n=live().find(x=>x.id===feat);
+if(!n){h.innerHTML='<h1 class="text-2xl sm:text-3xl font-bold text-white">The library is waiting for its first story</h1><p class="text-slate-300 mt-2 max-w-xl text-sm">Readers can browse freely without an account. Writers can create one and publish a novel in minutes.</p><button data-w class="btn px-5 py-2.5 text-sm mt-5">Write a story</button>';return}
+h.innerHTML=`<div class="flex gap-5 sm:gap-7 items-start">${cover(n,'hidden sm:block w-36 h-52 shrink-0')}<div class="min-w-0"><div class="flex flex-wrap gap-1.5 mb-3">${chips(n,6)}</div><h1 class="text-2xl sm:text-4xl font-bold text-white leading-tight">${esc(n.title)}</h1><p class="text-sm text-slate-400 mt-1">by <button data-au="${esc(n.author)}" class="text-slate-200 hover:underline">${esc(n.author)}</button></p><p class="text-sm sm:text-base text-slate-300 mt-4 leading-relaxed line-clamp-5 whitespace-pre-line">${esc(n.synopsis)}</p><div class="flex flex-wrap gap-2.5 mt-5"><button data-read="${n.id}" class="btn px-5 py-2.5 text-sm">${rl(n)}</button>${live().length>1?'<button data-shuf class="gh px-4 py-2.5 text-sm">Another story</button>':''}</div><p class="text-xs text-slate-400 mt-4">${n.chapters.length} chapters &middot; ${mins(n)} min read &middot; ${n.likes} applause</p></div></div>`}
+function pills(){const gs=['All',...new Set(pool().flatMap(n=>n.genres))];if(!gs.includes(genre))genre='All';show($('gp'),gs.length>2);$('gp').innerHTML=gs.map(g=>`<button data-g="${esc(g)}" class="pill ${g===genre?'on':''}">${esc(g)}</button>`).join('')}
+function card(n){const mine=tab==='mine',b=shelf.includes(n.id),ar=arm===n.id;
+return `<article class="gl card rounded-2xl p-4 flex flex-col gap-3"><div class="flex gap-3.5">${cover(n,'w-24 h-36 shrink-0 cursor-pointer','data-read="'+n.id+'"')}<div class="min-w-0 flex-1 flex flex-col"><div class="flex flex-wrap gap-1 mb-1.5">${n.draft?'<span class="chip" style="color:#fbbf24;border-color:rgba(251,191,36,.4);background:rgba(251,191,36,.12)">Draft</span>':''}${chips(n)}</div><h3 data-read="${n.id}" class="font-bold text-white leading-snug cursor-pointer hover:underline line-clamp-2">${esc(n.title)}</h3><p class="text-xs text-slate-400 mt-0.5 truncate">by <button data-au="${esc(n.author)}" class="hover:text-white hover:underline">${esc(n.author)}</button></p><p class="text-xs text-slate-300/85 mt-2 line-clamp-3 leading-relaxed">${esc(n.synopsis)}</p><p class="mt-auto pt-2 text-[11px] text-slate-400">${n.chapters.length} ch &middot; ${mins(n)} min &middot; ${n.likes} applause</p></div></div><div class="flex gap-2 pt-3 border-t border-white/10"><button data-read="${n.id}" class="btn flex-1 py-2 text-xs">${rl(n)}</button>${mine?`<button data-edit="${n.id}" class="gh px-3 py-2 text-xs">Edit</button><button data-del="${n.id}" class="gh px-3 py-2 text-xs ${ar?'text-rose-300':''}">${ar?'Confirm':'Delete'}</button>`:`<button data-bm="${n.id}" class="gh px-3 py-2 text-xs ${b?'on':''}">${b?'Saved':'Bookmark'}</button>`}</div></article>`}
+function grid(){const sg=[tab,genre,q,sort].join('|');if(sg!==grid.s){lim=12;grid.s=sg}let l=pool().filter(n=>(tab!=='shelf'||shelf.includes(n.id))&&(genre==='All'||n.genres.includes(genre))&&(!q||(n.title+' '+n.author+' '+n.synopsis+' '+n.genres.join(' ')).toLowerCase().includes(q)));
+l=sort==='top'?l.sort((a,b)=>b.likes-a.likes):l.sort((a,b)=>b.created-a.created);
+$('gd').innerHTML=l.slice(0,lim).map(card).join('');show($('lm'),l.length>lim);show($('em'),!l.length);
+if(!l.length){const t=tab==='shelf'?['Your shelf is empty','Bookmark a story and it will wait for you here. No account needed.']:tab==='mine'?['Nothing published yet','Start your first novel and it will appear here, ready to edit.']:!live().length?['No stories yet','Be the first: create an account and publish a novel.']:['No stories match','Try a different search or genre.'];$('eh').textContent=t[0];$('ep').textContent=t[1]}}
+function render(){hdr();hero();pills();grid()}
+function bm(id){const i=shelf.indexOf(id);i<0?shelf.push(id):shelf.splice(i,1);sv('shelf',shelf);toast(i<0?'Saved to My Shelf':'Removed from My Shelf');render()}
+function del(id){if(arm!==id){arm=id;grid();setTimeout(()=>{if(arm===id){arm=null;grid()}},3000);return}arm=null;novels=novels.filter(n=>n.id!==id||n.owner!==me.id);shelf=shelf.filter(x=>x!==id);delete prog[id];sv('novels',novels);sv('shelf',shelf);sv('prog',prog);if(feat===id)pick();render();toast('Novel deleted')}
+const wr=()=>{if(me)openEd();else{pend=true;openA('up','Create an account to publish and manage your stories. Reading stays free for everyone.')}};
+document.addEventListener('click',e=>{const t=e.target.closest('[data-read],[data-bm],[data-edit],[data-del],[data-shuf],[data-w],[data-tab],[data-g],[data-au]');if(!t)return;const d=t.dataset;
+if(d.read)openR(d.read);else if(d.bm)bm(d.bm);else if(d.edit)openEd(d.edit);else if(d.del)del(d.del);else if(d.shuf!==undefined){pick();hero()}else if(d.w!==undefined)wr();else if(d.tab){tab=d.tab;render();scrollTo({top:0,behavior:'smooth'})}else if(d.g){genre=d.g;render()}else if(d.au){q=d.au.toLowerCase();$('q').value=d.au;tab='explore';genre='All';render();scrollTo({top:0,behavior:'smooth'})}});
+$('q').oninput=e=>{q=e.target.value.trim().toLowerCase();grid()};$('sr').onchange=e=>{sort=e.target.value;grid()};$('lm').onclick=()=>{lim+=12;grid()};
+/* ---------- reader ---------- */
+const R=$('rd');let rn=null,ri=0;const cn=()=>novels.find(n=>n.id===rn);
+function applyRS(){R.dataset.t=rs.theme;$('rB').className=rs.font;$('rB').style.fontSize=rs.size+'px';$('fs').textContent=rs.size+'px';R.querySelectorAll('[data-f]').forEach(b=>b.classList.toggle('on',b.dataset.f===rs.font));R.querySelectorAll('[data-th]').forEach(b=>b.classList.toggle('on',b.dataset.th===rs.theme));sv('rs',rs)}
+const apl=n=>$('ap').textContent=(liked.includes(n.id)?'Applauded ':'Applaud ')+n.likes;
+function drawR(){const n=cn();if(!n)return;ri=Math.max(0,Math.min(n.chapters.length-1,ri));const c=n.chapters[ri];prog[n.id]=ri;sv('prog',prog);
+$('rT').textContent=n.title;$('rA').textContent='by '+n.author+' \u00b7 '+n.genres.join(', ');
+$('rC').innerHTML=n.chapters.map((x,i)=>`<option value="${i}"${i===ri?' selected':''}>${esc(x.title)}</option>`).join('');
+$('rN').textContent='Chapter '+(ri+1)+' of '+n.chapters.length;$('rH').textContent=c.title;
+$('rY').innerHTML=ri===0?`<p class="mu italic text-sm mb-8 pl-3 border-l-2 ln whitespace-pre-line">${esc(n.synopsis)}</p>`:'';
+$('rB').innerHTML=c.content.split(/\n+/).filter(p=>p.trim()).map(p=>`<p>${esc(p)}</p>`).join('');
+$('pv').disabled=ri===0;$('nx').disabled=ri>=n.chapters.length-1;apl(n);$('rS').scrollTop=0;$('pb').style.width='0'}
+function openR(id){rn=id;if(!cn())return;ri=prog[id]||0;applyRS();show(R);document.body.style.overflow='hidden';document.title=cn().title+' \u00b7 Nocturne';drawR()}
+function closeR(){cl(R);R.classList.remove('fc');cl($('uf'));document.body.style.overflow='';document.title='Nocturne';rn=null;render()}
+const exitF=()=>{R.classList.remove('fc');cl($('uf'))};
+$('rX').onclick=closeR;$('uf').onclick=exitF;$('fc').onclick=()=>{R.classList.add('fc');show($('uf'))};
+$('rC').onchange=e=>{ri=+e.target.value;drawR()};$('pv').onclick=()=>{ri--;drawR()};$('nx').onclick=()=>{ri++;drawR()};
+$('fm').onclick=()=>{rs.size=Math.max(14,rs.size-1);applyRS()};$('fp').onclick=()=>{rs.size=Math.min(28,rs.size+1);applyRS()};
+R.addEventListener('click',e=>{const t=e.target.closest('[data-f],[data-th]');if(!t)return;if(t.dataset.f)rs.font=t.dataset.f;else rs.theme=t.dataset.th;applyRS()});
+$('rS').onscroll=e=>{const s=e.target;$('pb').style.width=s.scrollTop/Math.max(1,s.scrollHeight-s.clientHeight)*100+'%'};
+$('ap').onclick=()=>{const n=cn();if(!n)return;const i=liked.indexOf(n.id);if(i<0){liked.push(n.id);n.likes++}else{liked.splice(i,1);n.likes=Math.max(0,n.likes-1)}sv('liked',liked);sv('novels',novels);apl(n)};
+/* ---------- editor (accounts only) ---------- */
+const E=$('ed');let D=null,dirty=false;
+function openEd(id){if(!me)return;const n=id&&novels.find(x=>x.id===id&&x.owner===me.id);D=n?JSON.parse(JSON.stringify(n)):{id:null,title:'',genres:[],synopsis:'',cover:COV[0],chapters:[{title:'Chapter 1',content:''}]};D.ci=0;$('eH').textContent=n?'Edit novel':'New novel';$('eT').value=D.title;$('eS').value=D.synopsis;$('eP').checked=!!D.draft;dirty=false;cl($('eE'));drawEd();show(E)}
+function wcs(){$('eW').textContent=wc($('cC').value)+' words in this chapter \u00b7 '+D.chapters.reduce((s,c)=>s+wc(c.content),0)+' in total'}
+function drawEd(){const all=[...new Set([...GEN,...novels.flatMap(n=>n.genres),...D.genres])];
+$('eG').innerHTML=all.map(g=>`<button type="button" data-eg="${esc(g)}" class="pill ${D.genres.includes(g)?'on':''}">${esc(g)}</button>`).join('');
+$('eK').innerHTML=COV.map((c,i)=>`<button type="button" data-ek="${i}" aria-label="Cover ${i+1}" class="w-8 h-8 rounded-full border-2 ${D.cover===c?'border-white scale-110':'border-white/25'}" style="background:${c}"></button>`).join('');
+$('eC').innerHTML=D.chapters.map((c,i)=>`<button type="button" data-ec="${i}" class="pill ${i===D.ci?'on':''}">${i+1}</button>`).join('')+'<button type="button" data-ec="+" class="pill">+ Chapter</button>';
+const c=D.chapters[D.ci];$('cT').value=c.title;$('cC').value=c.content;show($('cD'),D.chapters.length>1);wcs()}
+E.addEventListener('click',e=>{const t=e.target.closest('[data-eg],[data-ek],[data-ec]');if(!t)return;dirty=true;const d=t.dataset;
+if(d.eg){const i=D.genres.indexOf(d.eg);i<0?D.genres.push(d.eg):D.genres.splice(i,1)}else if(d.ek)D.cover=COV[d.ek];else if(d.ec==='+'){D.chapters.push({title:'Chapter '+(D.chapters.length+1),content:''});D.ci=D.chapters.length-1}else D.ci=+d.ec;drawEd()});
+$('eT').oninput=e=>D.title=e.target.value;$('eS').oninput=e=>D.synopsis=e.target.value;$('cT').oninput=e=>D.chapters[D.ci].title=e.target.value;$('cC').oninput=e=>{D.chapters[D.ci].content=e.target.value;wcs()};
+$('eN').onkeydown=e=>{if(e.key!=='Enter')return;e.preventDefault();const g=e.target.value.trim().slice(0,30);if(g&&!D.genres.some(x=>x.toLowerCase()===g.toLowerCase()))D.genres.push(g);e.target.value='';drawEd()};
+$('cD').onclick=()=>{D.chapters.splice(D.ci,1);D.ci=Math.max(0,D.ci-1);drawEd()};
+E.addEventListener('input',()=>dirty=true);
+const closeE=b=>{if(dirty&&!b.dataset.arm){b.dataset.arm=1;b.textContent='Discard changes?';setTimeout(()=>{delete b.dataset.arm;b.textContent=b.id==='eX'?'Close':'Cancel'},3000);return}delete b.dataset.arm;cl(E)};
+$('eX').onclick=e=>closeE(e.currentTarget);$('eY').onclick=e=>closeE(e.currentTarget);
+addEventListener('beforeunload',e=>{if(dirty&&!E.classList.contains('hid')){e.preventDefault();e.returnValue=''}});
+$('ef').onsubmit=e=>{e.preventDefault();const er=m=>{$('eE').textContent=m;show($('eE'));E.querySelector('.ov').scrollTop=0};
+const t=D.title.trim();if(!t)return er('Please add a title for your novel.');if(!D.genres.length)return er('Choose at least one genre.');
+const bad=D.chapters.findIndex(c=>!c.content.trim());if(bad>-1){D.ci=bad;drawEd();return er('Chapter '+(bad+1)+' has no text yet.')}
+const chs=D.chapters.map((c,i)=>({title:c.title.trim()||'Chapter '+(i+1),content:c.content.trim()})),syn=D.synopsis.trim()||chs[0].content.replace(/\s+/g,' ').slice(0,220)+'\u2026';
+if(D.id){const n=novels.find(x=>x.id===D.id&&x.owner===me.id);if(!n)return er('You can only edit your own novels.');Object.assign(n,{title:t,genres:D.genres,synopsis:syn,cover:D.cover,chapters:chs,draft:$('eP').checked})}
+else{const n={id:'n'+Date.now().toString(36),owner:me.id,author:me.name,title:t,genres:D.genres,synopsis:syn,cover:D.cover,chapters:chs,likes:0,created:Date.now(),draft:$('eP').checked};novels.unshift(n);if(!feat)feat=n.id}
+sv('novels',novels);if(!live().some(x=>x.id===feat))pick();cl(E);tab='mine';genre='All';q='';$('q').value='';render();toast($('eP').checked?'Draft saved. Only you can see it.':'Saved. Your novel is live in the library.');scrollTo({top:0,behavior:'smooth'})};
+/* ---------- accounts (local demo: replace with a real backend for production) ---------- */
+const A=$('au');let mode='in';
+async function hash(p,s){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s+p));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return btoa(s+p)}}
+function setM(m,note){mode=m;show($('aN'),m==='up');$('aP').autocomplete=m==='up'?'new-password':'current-password';$('ah').textContent=m==='up'?'Create your account':'Welcome back';$('ab').textContent=m==='up'?'Create account':'Sign in';A.querySelectorAll('[data-m]').forEach(b=>b.classList.toggle('on',b.dataset.m===m));$('an').textContent=note||(m==='up'?'Accounts can publish and manage novels.':'Sign in to publish and manage your novels.');cl($('ae'))}
+function openA(m,note){setM(m,note);show(A);$(m==='up'?'aN':'aE').focus()}
+const closeA=()=>{cl(A);pend=false};
+A.addEventListener('click',e=>{const t=e.target.closest('[data-m]');if(t)setM(t.dataset.m);if(e.target===A)closeA()});
+$('ax').onclick=$('ag').onclick=closeA;$('si').onclick=()=>openA('in');$('su').onclick=()=>openA('up');
+$('af').onsubmit=async e=>{e.preventDefault();const er=m=>{$('ae').textContent=m;show($('ae'))},em=$('aE').value.trim().toLowerCase(),pw=$('aP').value,nm=$('aN').value.trim();
+if(mode==='up'&&nm.length<2)return er('Please enter a pen name.');if(!/^\S+@\S+\.\S+$/.test(em))return er('Please enter a valid email address.');if(pw.length<8)return er('Password must be at least 8 characters.');
+let u=users.find(x=>x.email===em);
+if(mode==='up'){if(u)return er('An account with this email already exists. Try signing in.');const salt=rnd().toString(36).slice(2);u={id:'u'+Date.now().toString(36),name:nm,email:em,salt,hash:await hash(pw,salt)};users.push(u);sv('users',users)}
+else if(!u||u.hash!==await hash(pw,u.salt))return er('Incorrect email or password.');
+me=u;sv('me',u.id);cl(A);$('af').reset();render();toast('Signed in as '+me.name);if(pend){pend=false;openEd()}};
+$('so').onclick=()=>{me=null;sv('me','');if(tab==='mine')tab='explore';render();toast('Signed out')};
+addEventListener('keydown',e=>{const hid=x=>x.classList.contains('hid');
+if(e.key==='Escape'){if(!hid(A))closeA();else if(!hid(E))closeE($('eY'));else if(R.classList.contains('fc'))exitF();else if(!hid(R))closeR()}
+else if(!hid(R)&&!/INPUT|TEXTAREA|SELECT/.test(e.target.tagName)){if(e.key==='ArrowRight')$('nx').click();if(e.key==='ArrowLeft')$('pv').click()}});
+/* ---------- twilight lake scene ---------- */
+const cv=$('cv'),cx=cv.getContext('2d');let W=innerWidth,H=innerHeight,HZ=H*.63,T=0,last=0,px=-1,py=-1,mood='night',sa=2;
+const M={night:{sky:[[5,9,24],[11,25,52],[21,56,78]],mtn:[[16,30,52],[11,21,40],[7,14,26]],rim:[64,136,168],water:[[12,34,54],[4,11,22]],moon:[248,250,232],glow:[165,225,255],dk:[5,11,20],st:1,au:1,my:.19},
+dusk:{sky:[[24,15,44],[118,44,72],[242,138,72]],mtn:[[68,34,62],[44,22,46],[28,14,34]],rim:[236,138,86],water:[[148,72,68],[22,14,32]],moon:[255,226,178],glow:[255,156,88],dk:[16,10,22],st:.3,au:.2,my:.33},
+dawn:{sky:[[24,38,66],[88,114,148],[216,186,178]],mtn:[[74,92,120],[48,64,90],[30,44,66]],rim:[198,208,226],water:[[128,136,156],[26,38,58]],moon:[246,248,255],glow:[214,226,248],dk:[16,26,40],st:.4,au:.3,my:.23}};
+const ACC={night:['#38bdf8','#34d399','rgba(56,189,248,.3)','rgba(56,189,248,.14)','#7dd3fc'],dusk:['#fb923c','#f472b6','rgba(251,146,60,.34)','rgba(251,146,60,.15)','#fdba74'],dawn:['#f472b6','#fcd34d','rgba(244,114,182,.32)','rgba(244,114,182,.14)','#f9a8d4']};
+let cur=JSON.parse(JSON.stringify(M.night)),tgt=M.night;
+const lp=(a,b,t)=>Array.isArray(a)?a.map((v,i)=>lp(v,b[i],t)):a+(b-a)*t,rgb=(c,a=1)=>`rgba(${c[0]|0},${c[1]|0},${c[2]|0},${a})`;
+$('mo').onclick=()=>{mood=mood==='night'?'dusk':mood==='dusk'?'dawn':'night';tgt=M[mood];const s=document.documentElement.style;['--a','--b','--g','--s','--t'].forEach((k,i)=>s.setProperty(k,ACC[mood][i]));$('mo').textContent=mood[0].toUpperCase()+mood.slice(1)};
+const rid=(sd,n,b,am)=>{const p=[1,2,3].map(i=>Math.sin(sd*i*7.3)*6.28);return Array.from({length:n},(_,i)=>{const u=i/(n-1),d=Math.exp(-((u-.44)**2)/.045);return b+(.5*(1-Math.abs(Math.sin(u*4.2+p[0])))+.3*(1-Math.abs(Math.sin(u*9.5+p[1])))+.2*(1-Math.abs(Math.sin(u*21+p[2]))))*am*(1-.5*d)})};
+const L=[rid(1,120,.08,.25),rid(2,140,.05,.2),rid(3,160,.025,.14)];
+const stars=Array.from({length:140},()=>({x:rnd(),y:rnd()**1.4*.95,r:.5+rnd()*1.1,s:1+rnd()*3,p:rnd()*6.3,a:.3+rnd()*.7}));
+const pines=Array.from({length:44},(_,i)=>({x:i<22?i/21*.32-.01:.66+(i-22)/21*.36,h:.05+rnd()*.07,w:.011+rnd()*.007,p:rnd()*6.3}));
+const flies=Array.from({length:30},()=>({x:rnd()*W,y:H*(.6+rnd()*.35),vx:0,vy:0,p:rnd()*6.3,s:1.5+rnd()*2,d:rnd()<.5?1:-1}));
+let rip=[],shoot=[];
+function fit(){const ow=W,oh=H;W=innerWidth;H=innerHeight;HZ=H*.63;const d=Math.min(devicePixelRatio||1,2);cv.width=W*d;cv.height=H*d;cx.setTransform(d,0,0,d,0,0);flies.forEach(f=>{f.x*=W/ow;f.y*=H/oh})}
+function shootAt(x,y){let sx,sy,an;if(x==null){sx=W*(.1+rnd()*.8);sy=H*(.02+rnd()*.2);an=.45+rnd()*.5}else{sx=x+(x<W*.65?-1:1)*(120+rnd()*150);sy=Math.max(-10,y-(110+rnd()*120));an=Math.atan2(y-sy,x-sx)}const v=650+rnd()*400;shoot.push({x:sx,y:sy,vx:Math.cos(an)*v,vy:Math.sin(an)*v,l:0,m:.8+rnd()*.5})}
+function ripple(x,y){const d=(y-HZ)/(H-HZ),k=.45+d*.85,a=.24+d*.14;rip.push({x,y,r:2,m:(60+rnd()*30)*k,s:40*k,a},{x,y,r:.5,m:(38+rnd()*20)*k,s:28*k,a})}
+cv.addEventListener('pointerdown',e=>e.clientY<HZ?shootAt(e.clientX,e.clientY):ripple(e.clientX,e.clientY));
+addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY},{passive:true});addEventListener('resize',fit);
+function frame(ts){const dt=Math.min(.05,(ts-last)/1e3||0);last=ts;T+=dt;for(const k in tgt)cur[k]=lp(cur[k],tgt[k],Math.min(1,dt*2.4));const c=cur;let g;
+g=cx.createLinearGradient(0,0,0,HZ);g.addColorStop(0,rgb(c.sky[0]));g.addColorStop(.56,rgb(c.sky[1]));g.addColorStop(1,rgb(c.sky[2]));cx.fillStyle=g;cx.fillRect(0,0,W,HZ+2);
+for(const s of stars){cx.fillStyle=`rgba(255,255,255,${s.a*(.55+.45*Math.sin(T*s.s+s.p))*c.st})`;cx.beginPath();cx.arc(s.x*W,s.y*HZ,s.r,0,6.3);cx.fill()}
+const mx=W*.27,my=H*c.my,mr=Math.max(18,Math.min(W,H)*.034);
+g=cx.createRadialGradient(mx,my,mr*.5,mx,my,mr*6);g.addColorStop(0,rgb(c.glow,.3));g.addColorStop(1,rgb(c.glow,0));cx.fillStyle=g;cx.fillRect(mx-mr*6,my-mr*6,mr*12,mr*12);
+cx.fillStyle=rgb(c.moon);cx.beginPath();cx.arc(mx,my,mr,0,6.3);cx.fill();
+if(c.au>.03){cx.globalCompositeOperation='screen';const st=Math.max(10,W/90|0);for(let x=0;x<W;x+=st){const y=HZ*.45+Math.sin(x*.005+T*.5)*26+Math.sin(x*.011-T*.35)*12,h=HZ*.34*(.6+.4*Math.sin(x*.017+T*.9+1)),a=.3*c.au;g=cx.createLinearGradient(0,y,0,y-h);g.addColorStop(0,'rgba(52,211,153,0)');g.addColorStop(.2,`rgba(52,211,153,${a})`);g.addColorStop(.6,`rgba(139,92,246,${a*.5})`);g.addColorStop(1,'rgba(139,92,246,0)');cx.fillStyle=g;cx.fillRect(x,y-h,st+1,h)}cx.globalCompositeOperation='source-over'}
+if((sa-=dt)<=0){shootAt();sa=5+rnd()*7}
+cx.globalCompositeOperation='lighter';cx.lineCap='round';
+for(let i=shoot.length-1;i>=0;i--){const s=shoot[i];s.l+=dt;s.x+=s.vx*dt;s.y+=s.vy*dt;const u=s.l/s.m;if(u>=1||s.y>HZ-10){shoot.splice(i,1);continue}const a=Math.sin(u*Math.PI),m=Math.hypot(s.vx,s.vy),tx=s.x-s.vx/m*100*a,ty=s.y-s.vy/m*100*a;g=cx.createLinearGradient(s.x,s.y,tx,ty);g.addColorStop(0,`rgba(255,255,255,${a})`);g.addColorStop(1,'rgba(125,211,252,0)');cx.strokeStyle=g;cx.lineWidth=2;cx.beginPath();cx.moveTo(s.x,s.y);cx.lineTo(tx,ty);cx.stroke()}
+cx.globalCompositeOperation='source-over';
+L.forEach((r,i)=>{cx.beginPath();cx.moveTo(0,HZ);r.forEach((v,j)=>cx.lineTo(j/(r.length-1)*W,HZ-v*H));cx.lineTo(W,HZ);cx.fillStyle=rgb(c.mtn[i]);cx.fill();cx.strokeStyle=rgb(c.rim,.2);cx.lineWidth=1.2;cx.stroke()});
+g=cx.createLinearGradient(0,HZ-H*.12,0,HZ);g.addColorStop(0,rgb(c.sky[2],0));g.addColorStop(1,rgb(c.sky[2],.3));cx.fillStyle=g;cx.fillRect(0,HZ-H*.12,W,H*.12);
+cx.fillStyle=rgb(c.dk);cx.beginPath();cx.moveTo(0,HZ+10);cx.quadraticCurveTo(W*.18,HZ-8,W*.36,HZ+2);cx.lineTo(W*.64,HZ+2);cx.quadraticCurveTo(W*.82,HZ-10,W,HZ-3);cx.lineTo(W,HZ+10);cx.fill();
+for(const p of pines){const bx=p.x*W,by=HZ+3,h=p.h*H,w=p.w*W,sw=Math.sin(T*1.4+p.p)*2;for(let k=0;k<3;k++){const y0=by-h*(.12+k*.3),y1=by-h*(.42+k*.3),hw=w*(1-k*.28);cx.beginPath();cx.moveTo(bx+sw*(k+1)*.4,y1-h*.12);cx.lineTo(bx-hw,y0);cx.lineTo(bx+hw,y0);cx.fill()}}
+const kx=W*.76,sc=Math.max(.7,Math.min(1.2,W/1280)),fl=.85+.15*Math.sin(T*7);
+g=cx.createRadialGradient(kx,HZ-12*sc,3,kx,HZ-12*sc,60*sc);g.addColorStop(0,`rgba(255,196,86,${.3*fl})`);g.addColorStop(1,'rgba(255,196,86,0)');cx.fillStyle=g;cx.fillRect(kx-70*sc,HZ-80*sc,140*sc,100*sc);
+cx.fillStyle=rgb(c.dk);cx.fillRect(kx-24*sc,HZ-24*sc,48*sc,26*sc);cx.beginPath();cx.moveTo(kx-30*sc,HZ-22*sc);cx.lineTo(kx,HZ-44*sc);cx.lineTo(kx+30*sc,HZ-22*sc);cx.fill();
+cx.fillStyle=`rgba(255,200,100,${.95*fl})`;cx.fillRect(kx-14*sc,HZ-18*sc,9*sc,8*sc);cx.fillRect(kx+5*sc,HZ-18*sc,9*sc,8*sc);
+g=cx.createLinearGradient(0,HZ,0,H);g.addColorStop(0,rgb(c.sky[2],.9));g.addColorStop(.2,rgb(c.water[0]));g.addColorStop(1,rgb(c.water[1]));cx.fillStyle=g;cx.fillRect(0,HZ,W,H-HZ);
+L.forEach((r,i)=>{cx.beginPath();cx.moveTo(0,HZ);r.forEach((v,j)=>cx.lineTo(j/(r.length-1)*W,HZ+v*H*.6));cx.lineTo(W,HZ);cx.fillStyle=rgb(c.mtn[i],.4);cx.fill()});
+const md=(H-HZ)*.9;for(let d=2;d<md;d+=3){const r=d/md,w1=Math.sin(d*.24-T*2.5),sh=.5+.5*w1*Math.cos(d*.11+T*1.6);if(sh<.3)continue;cx.fillStyle=rgb(c.moon,(1-r*.82)*sh*.4);cx.beginPath();cx.ellipse(mx+w1*(4+r*14),HZ+d,mr*(.65+r*1.8)*(.65+.55*sh),1.4,0,0,6.3);cx.fill()}
+for(let d=4;d<70;d+=4){const w1=Math.sin(d*.3-T*2.6);cx.fillStyle=`rgba(255,196,86,${(1-d/70)*(.3+.2*w1)})`;cx.beginPath();cx.ellipse(kx+w1*3,HZ+d,(8+d*.15)*sc,1.2,0,0,6.3);cx.fill()}
+for(let i=rip.length-1;i>=0;i--){const p=rip[i];p.r+=p.s*dt;const u=p.r/p.m;if(u>=1){rip.splice(i,1);continue}cx.strokeStyle=rgb(c.moon,.8*(1-u)**1.5);cx.lineWidth=1.5;cx.beginPath();cx.ellipse(p.x,p.y,p.r,p.r*p.a,0,0,6.3);cx.stroke()}
+cx.strokeStyle=rgb(c.dk);cx.lineWidth=2;for(let i=0;i<40;i++){const l=i<20,u=l?i/19:(i-20)/19,bx=(l?u*.22:.78+u*.22)*W,h=(.05+(l?1-u:u)*.09)*H*(.6+(i*37%10)/12),tx=bx+Math.sin(T*1.8+i)*8+(i%5-2)*3;cx.beginPath();cx.moveTo(bx,H+3);cx.quadraticCurveTo(bx+(tx-bx)*.3,H-h*.55,tx,H-h);cx.stroke()}
+cx.globalCompositeOperation='lighter';
+for(const f of flies){const a=T*.8+f.p;let tx=Math.cos(a*2.1)*18,ty=Math.sin(a*1.7)*12;
+if(px>=0){const dx=px-f.x,dy=py-f.y,d=Math.hypot(dx,dy),Rr=Math.min(W,H)*.35;if(d<Rr&&d>1){const k=(1-d/Rr)**1.3;tx+=dx/d*45*k-dy/d*f.d*55*k;ty+=dy/d*45*k+dx/d*f.d*55*k}}
+f.vx+=(tx-f.vx)*Math.min(1,dt*2.5);f.vy+=(ty-f.vy)*Math.min(1,dt*2.5);f.x=(f.x+f.vx*dt+W)%W;f.y=Math.max(HZ-H*.06,Math.min(H-10,f.y+f.vy*dt));
+const pl=.35+.65*(.5+.5*Math.sin(T*f.s+f.p))**1.6,hr=8+pl*9;g=cx.createRadialGradient(f.x,f.y,0,f.x,f.y,hr);g.addColorStop(0,`rgba(226,255,130,${pl})`);g.addColorStop(.35,`rgba(110,231,120,${pl*.45})`);g.addColorStop(1,'rgba(110,231,120,0)');cx.fillStyle=g;cx.fillRect(f.x-hr,f.y-hr,hr*2,hr*2)}
+cx.globalCompositeOperation='source-over';requestAnimationFrame(frame)}
+fit();pick();render();setTimeout(()=>shootAt(),900);requestAnimationFrame(frame);
+})();
+</script></body></html>
